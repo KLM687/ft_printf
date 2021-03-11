@@ -1,5 +1,0 @@
-Credentials cache: API:CEEE6EE7-E582-4265-9F77-3EB082A22B6A
-        Principal: flee@42.FR
-
-  Issued                Expires               Principal
-Mar  8 15:31:24 2021  Mar 15 15:31:16 2021  krbtgt/42.FR@42.FR
