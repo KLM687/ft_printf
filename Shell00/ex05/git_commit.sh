@@ -1,1 +1,1 @@
-git log -5 --pretty=oneline 
+git log -5 --pretty=oneline | cut -d " " -f1
