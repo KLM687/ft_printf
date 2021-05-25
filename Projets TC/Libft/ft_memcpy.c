@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 14:48:18 by flee              #+#    #+#             */
-/*   Updated: 2021/05/25 14:48:20 by flee             ###   ########.fr       */
+/*   Created: 2021/05/25 15:21:47 by flee              #+#    #+#             */
+/*   Updated: 2021/05/25 15:23:27 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include <stdio.h>
 
-void	*ft_bzero(void *str, size_t n)
+void    *ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned int	index;
-	unsigned char	*memory;
-
-	index = 0;
-	memory = str;
-	while (index < n)
-	{
-		memory[index] = '\0';
-		index++;
-	}
+    
 }
-
