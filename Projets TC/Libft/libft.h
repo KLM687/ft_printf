@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 13:26:39 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 14:30:37 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/08 15:24:06 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ char			*ft_strnstr(const char *haystack, const char *needle,
 int				ft_atoi(char *str);
 void			*ft_calloc(size_t elementCount, size_t elementSize);
 char			*ft_strdup(char *src);
+char			*ft_substr(char const *src, unsigned int start, size_t len);
 #endif
