@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 13:00:30 by flee              #+#    #+#             */
-/*   Updated: 2021/06/07 14:59:03 by flee             ###   ########.fr       */
+/*   Created: 2021/06/07 14:02:21 by flee              #+#    #+#             */
+/*   Updated: 2021/06/07 14:08:16 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	i;
+#include <stdio.h>
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+int 	ft_toupper(int character)
+{
+	if (character >= 'a' && character <= 'z')
+		return ((unsigned char)character - 32);
+	else if (character == -1)
+		return (-1);
+	else
+		return ((unsigned char)character);
 }

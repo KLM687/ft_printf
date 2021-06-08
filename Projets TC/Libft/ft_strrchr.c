@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 13:00:30 by flee              #+#    #+#             */
-/*   Updated: 2021/06/07 14:59:03 by flee             ###   ########.fr       */
+/*   Created: 2021/06/07 14:46:03 by flee              #+#    #+#             */
+/*   Updated: 2021/06/07 14:57:53 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strrchr(const char *hay, int needle)
 {
-	unsigned int	i;
+	int	index;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	index = 0;
+	while (hay[index] != '\0')
+		index++;
+	while (index >= 0)
+	{
+		if (hay[index] == needle)
+			return ((char *)hay + index);
+		index--;
+	}
+	return (NULL);
 }

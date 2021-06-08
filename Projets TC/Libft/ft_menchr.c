@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_menchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 13:00:30 by flee              #+#    #+#             */
-/*   Updated: 2021/06/07 14:59:03 by flee             ###   ########.fr       */
+/*   Created: 2021/06/07 10:49:46 by flee              #+#    #+#             */
+/*   Updated: 2021/06/07 11:11:27 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
 {
-	unsigned int	i;
+	char	*memory;
+	char	needle;
+	int		index;
 
-	i = 0;
-	if (n == 0)
-		return (0);
-	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	memory = (char *)memoryBlock;
+	needle = (char)searchedChar;
+	index = 0;
+	while (index < size)
+	{
+		if (memory[index] == needle)
+		{
+			return (memory + index);
+		}
+		index++;
+	}
+	return (NULL);
 }

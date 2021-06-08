@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 13:00:30 by flee              #+#    #+#             */
-/*   Updated: 2021/06/07 14:59:03 by flee             ###   ########.fr       */
+/*   Created: 2021/06/07 13:43:46 by flee              #+#    #+#             */
+/*   Updated: 2021/06/07 13:46:35 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int 	ft_isascii(int character)
 {
-	unsigned int	i;
-
-	i = 0;
-	if (n == 0)
+	if (character >= 0 && character <= 127)
+		return (1);
+	else
 		return (0);
-	while (s1[i] == s2[i] && s1[i] && s2[i] && i < n - 1)
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
