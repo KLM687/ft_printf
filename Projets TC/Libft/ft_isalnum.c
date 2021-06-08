@@ -6,11 +6,13 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:21:14 by flee              #+#    #+#             */
-/*   Updated: 2021/06/07 12:28:35 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/08 14:02:56 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int 	isalnum(int character)
+#include <libft.h>
+
+int 	ft_isalnum (int character)
 {
 	if (character >= 'a' && character <= 'z')
 		return (1);

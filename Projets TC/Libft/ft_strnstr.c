@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 13:46:57 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 14:00:19 by flee             ###   ########.fr       */
+/*   Created: 2021/06/08 10:04:41 by flee              #+#    #+#             */
+/*   Updated: 2021/06/08 14:12:54 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int 	ft_isprint(int character)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (character >= 32 && character <= 127)
-		return (1);
-	else
-		return (0);
+	int	index;
+	int	j;
+
+	index = 0;
+	if (needle[0] == '\0')
+	{
+		return ((char *)haystack);
+	}
+	while (index < len && haystack[index] != '\0')
+	{
+		j = 0;
+		while (haystack[index + j] == needle[j] && (index + j) < len)
+		{
+			j++;
+			if (needle[j] == '\0')
+				return ((char *)haystack + index);
+		}
+		index++;
+	}
+	return (NULL);
 }

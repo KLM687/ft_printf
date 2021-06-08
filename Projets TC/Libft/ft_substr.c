@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 13:46:57 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 14:00:19 by flee             ###   ########.fr       */
+/*   Created: 2021/06/08 11:06:16 by flee              #+#    #+#             */
+/*   Updated: 2021/06/08 14:34:32 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int 	ft_isprint(int character)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	if (character >= 32 && character <= 127)
-		return (1);
-	else
-		return (0);
+
+
+int main (void)
+{
+	char tab[] = "francispetaintotoro";
+	char *tab2;
+	tab2 = ft_substr(tab, 0, 50);
+	printf("%s\n",tab2);
 }

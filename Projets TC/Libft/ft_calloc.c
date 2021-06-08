@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_menchr.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 10:49:46 by flee              #+#    #+#             */
-/*   Updated: 2021/06/07 11:11:27 by flee             ###   ########.fr       */
+/*   Created: 2021/06/08 10:26:08 by flee              #+#    #+#             */
+/*   Updated: 2021/06/08 14:15:27 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memchr(const void *memoryBlock, int searchedChar, size_t size)
+#include <libft.h>
+
+void	*ft_calloc(size_t elementCount, size_t elementSize)
 {
 	char	*memory;
-	char	needle;
 	int		index;
 
-	memory = (char *)memoryBlock;
-	needle = (char)searchedChar;
+	memory = malloc(elementSize * elementCount);
 	index = 0;
-	while (index < size)
+	if (!memory)
+		return (NULL);
+	while (index < elementCount * elementSize)
 	{
-		if (memory[index] == needle)
-		{
-			return (memory + index);
-		}
+		memory[index] = 0;
 		index++;
 	}
-	return (NULL);
+	return (memory);
 }

@@ -6,13 +6,13 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 13:00:18 by flee              #+#    #+#             */
-/*   Updated: 2021/06/07 11:35:49 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/08 13:54:27 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <libft.h>
 
-int 	ft_strlen(char *str)
+int 	ft_strlen (char *str)
 {
 	int	i;
 

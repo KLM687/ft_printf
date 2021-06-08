@@ -6,53 +6,29 @@
 /*   By: flee <flee@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:00:59 by flee              #+#    #+#             */
-/*   Updated: 2021/06/04 16:28:48 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/08 13:46:56 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include <libft.h>
 
-void * ft_memccpy( void * restrict dest, const void * restrict source, int ch, size_t maxsize )
+void	*ft_memccpy (void *restrict d, const void *restrict s, int c, size_t si)
 {
-	char *a;
-	char *b;
-	int index;
+	char	*a;
+	char	*b;
+	int		index;
 
-	a = (char *)source;
-	b = (char *)dest;
+	a = (char *)s;
+	b = (char *)d;
 	index = 0;
-	
-	while(index < maxsize)
+	while (index < si)
 	{
 		b[index] = a[index];
-		if((unsigned char)b[index] == (unsigned char)ch)
+		if ((unsigned char)b[index] == (unsigned char)c)
 		{
-			return((char *)b + index + 1);
+			return ((char *)b + index + 1);
 		}
 		index++;
 	}
-	return(NULL);
-}
-
-
-int main() {
-
-    const char * text = "Ceci est ma première phrase. Et ceci est ma seconde";
-    size_t length = strlen( text );
-
-    // On essaye de trouver la première phrase dans le texte.
-    char firstSentence[ length ];
-    char * res = ft_memccpy( firstSentence, text, '.', length );
-
-    // On affiche le resultat.
-    if ( res != NULL ) {
-        printf( "Une phrase entière a été trouvée.\n" );
-        printf( "\t%s\n", firstSentence );
-    } else {
-        printf( "Aucune phrase entière trouvée.\n" );
-    }
-
-    return 0;
+	return (NULL);
 }

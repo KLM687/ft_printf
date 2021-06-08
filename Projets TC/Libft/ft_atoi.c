@@ -6,13 +6,11 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 12:58:44 by flee              #+#    #+#             */
-/*   Updated: 2021/05/25 12:58:52 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/08 14:14:14 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <libft.h>
 
 int	ft_atoi(char *str)
 {
