@@ -6,12 +6,11 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:03:56 by flee              #+#    #+#             */
-/*   Updated: 2021/06/09 14:13:14 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/09 17:19:24 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_sizeof_word(char *str, char sep)
 {
@@ -47,24 +46,23 @@ int	ft_count_word(char *str, char sep)
 	return (words);
 }
 
-char	**ft_split(char *str, char sep)
+char	**ft_tabcreation(int words, char *str,
+		char sep, char **memorytab)
 {
-	int		index;
-	int		i;
-	int		words;
-	char	**memorytab;
-	int		cmpt;
+	int	i;
+	int	index;
+	int	cmpt;
 
-	words = ft_count_word(str, sep);
-	memorytab = (char **)malloc(sizeof(char *) * words + 1);
-	index = 0;
 	cmpt = 0;
+	index = 0;
 	while (index < words)
 	{
 		while (str[cmpt] != '\0' && str[cmpt] == sep)
 			cmpt++;
-		memorytab[index] = malloc(sizeof(char) * 
-				ft_sizeof_word(&str[cmpt], sep) + 1);
+		memorytab[index] = malloc(sizeof(char)
+				* ft_sizeof_word(&str[cmpt], sep) + 1);
+		if (!memorytab)
+			return (NULL);
 		i = 0;
 		while (str[cmpt] != '\0' && str[cmpt] != sep)
 		{
@@ -78,18 +76,15 @@ char	**ft_split(char *str, char sep)
 	return (memorytab);
 }
 
-int     main(void)
+char	**ft_split(char *str, char sep)
 {
-        char **memory;
-		char str[] = "afrancaesacoia";
-		char sep = 'a';
-		int i = 0;
+	int		words;
+	char	**memorytab;
 
-        memory = ft_split(str, sep);
-		while (memory[i] != '\0')
-		{
-			printf("%s\n",memory[i]);
-			i++;
-		}
-
+	words = ft_count_word(str, sep);
+	memorytab = (char **)malloc(sizeof(char *) * words + 1);
+	if (!memorytab)
+		return (NULL);
+	memorytab = ft_tabcreation(words, str, sep, memorytab);
+	return (memorytab);
 }
