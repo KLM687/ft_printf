@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:41:01 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 14:05:34 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 18:23:27 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 char 	*ft_strchr(const char *hay, int needle)
 {
-	int	index;
+	unsigned int	i;
 
-	index = 0;
-	while (hay[index] != '\0')
+	i = 0;
+	while (hay[i])
 	{
-		if (hay[index] == needle)
-			return ((char *)hay + index);
-		index++;
+		if (hay[i] == (char)needle)
+			return ((char *)hay + i);
+		i++;
 	}
+	if (hay[i] == (char)needle)
+		return ((char *)hay + i);
 	return (NULL);
 }

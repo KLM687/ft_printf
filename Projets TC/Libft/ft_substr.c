@@ -6,37 +6,36 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:06:16 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 12:37:19 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 20:34:09 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_substr(char const *src, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*memory;
-	unsigned long	size;
-	unsigned long	cmpt;
+	char		*tab;
+	int		len1;
+	int		len2;
+	int		i;
 
-	size = 0;
-	cmpt = start;
-	if (src == NULL || len < 0)
-		return (NULL);
-	while (src[cmpt] != '\0' && size < len)
+	i = -1;
+	tab = NULL;
+	if (s)
 	{
-		size++;
-		cmpt++;
+		len1 = (int)ft_strlen(s);
+		len2 = len;
+		if ((int)start > len1)
+			len2 = 0;
+		else if ((int)start + len2 > len1)
+			len2 = len1 - (int)start;
+		tab = (char *) malloc(sizeof(char) * (len2 + 1));
+		if (!tab)
+			return (NULL);
+		while (++i < len2)
+			tab[i] = s[start + i];
+		tab[i] = '\0';
 	}
-	memory = malloc(sizeof(char) * size);
-	if (!memory)
-		return (NULL);
-	cmpt = 0;
-	while (cmpt < size)
-	{
-		memory[cmpt] = src[start];
-		start++;
-		cmpt++;
-	}
-	memory[cmpt] = '\0';
-	return (memory);
+	return (tab);
 }
+

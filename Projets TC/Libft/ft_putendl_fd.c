@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:03:28 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 11:48:08 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 20:50:52 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\0', fd);
+	int		len;
+
+	len = 0;
+	if (s)
+		len = ft_strlen(s);
+	write(fd, s, len);
+	write(fd, "\n", 1);
 }

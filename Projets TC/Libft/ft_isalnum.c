@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 12:21:14 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 14:02:56 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 18:01:42 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 int 	ft_isalnum (int character)
 {
-	if (character >= 'a' && character <= 'z')
-		return (1);
-	else if (character >= 'A' && character <= 'Z')
-		return (1);
-	else if (character >= 0 && character <= 9)
+	if (ft_isalpha(character) || ft_isdigit(character))
 		return (1);
 	else
 		return (0);

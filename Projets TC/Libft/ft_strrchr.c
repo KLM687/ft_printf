@@ -6,24 +6,21 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:46:03 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 14:06:45 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 18:39:08 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *hay, int needle)
+char		*ft_strrchr(const char *hay, int needle)
 {
-	int	index;
+	size_t	len;
 
-	index = 0;
-	while (hay[index] != '\0')
-		index++;
-	while (index >= 0)
-	{
-		if (hay[index] == needle)
-			return ((char *)hay + index);
-		index--;
-	}
+	len = ft_strlen(hay);
+	if ((char)needle == '\0')
+		return ((char *)hay + len);
+	while (len--)
+		if (*(hay + len) == (char)needle)
+			return ((char *)(hay + len));
 	return (NULL);
 }

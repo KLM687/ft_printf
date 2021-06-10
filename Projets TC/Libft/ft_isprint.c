@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:46:57 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 14:00:19 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 18:03:06 by cesco            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int 	ft_isprint(int character)
 {
-	if (character >= 32 && character <= 127)
+	if (character >= 32 && character <= 126)
 		return (1);
 	else
 		return (0);
