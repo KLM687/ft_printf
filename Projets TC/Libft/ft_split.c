@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:03:56 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 10:37:09 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 14:39:35 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	**ft_tabcreation(int words, char *str,
 	return (memorytab);
 }
 
-char	**ft_split(char *str, char sep)
+char	**ft_split(char const *str, char sep)
 {
 	int		words;
 	char	**memorytab;

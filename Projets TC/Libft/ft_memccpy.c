@@ -6,13 +6,13 @@
 /*   By: flee <flee@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:00:59 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 12:35:16 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 14:21:03 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy (void *restrict d, const void *restrict s, int c, size_t si)
+void	*ft_memccpy (void *d, const void *s, int c, size_t si)
 {
 	char			*a;
 	char			*b;

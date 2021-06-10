@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:12:43 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 12:36:05 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 15:23:25 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ int 	ft_memcmp(const void *pointer1, const void *pointer2, size_t size)
 	tab1 = (char *)pointer1;
 	tab2 = (char *)pointer2;
 	index = 0;
-	while (index < size)
+	if (size == 0)
+		return (0);
+	while (*tab1 == *tab2 && index < size && *tab1 && *tab2)
 	{
-		if (tab1[index] != tab2[index])
-			return ((unsigned char)tab1[index] - (unsigned char)tab2[index]);
+		tab1++;
+		tab2++;
 		index++;
 	}
-	return ((unsigned char)tab1[index] - (unsigned char)tab2[index]);
+	return ((unsigned char)*tab1 - (unsigned char)*tab2);
 }
