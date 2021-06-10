@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flee <flee@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/04 16:30:21 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 13:53:31 by flee             ###   ########.fr       */
+/*   Created: 2021/06/10 11:49:41 by flee              #+#    #+#             */
+/*   Updated: 2021/06/10 11:52:41 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t size)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*tmp;
+	long int	a;
 
-	tmp = malloc(sizeof(char) * size);
-	if (!tmp)
-		return (NULL);
-	ft_memcpy (tmp, src, size);
-	ft_memcpy (dest, tmp, size);
-	return (dest);
+	a = n;
+	if (a < 0)
+	{
+		ft_putchar_fd('-', fd);
+		a = -a;
+	}
+	if (a > 9)
+	{
+		ft_putnbr_fd(a / 10, fd);
+		ft_putnbr_fd(a % 10, fd);
+	}
+	else
+	{
+		ft_putchar_fd(a + '0', fd);
+	}
 }

@@ -6,17 +6,16 @@
 /*   By: cesco <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 17:20:23 by cesco             #+#    #+#             */
-/*   Updated: 2021/06/09 21:51:20 by cesco            ###   ########.fr       */
+/*   Updated: 2021/06/10 11:02:13 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 int	ft_count(int nb)
 {
-	int index;
-	
+	int	index;
+
 	index = 1;
 	while (nb != 0)
 	{
@@ -38,16 +37,18 @@ char	*ft_reverse(int nb, char *tab, int index)
 	}
 	return (tab);
 }
-		
-char		*ft_itoa(int nb)
+
+char	*ft_itoa(int nb)
 {
 	char	*tab;
-	int	sign;
-	int 	index;
-	
+	int		sign;
+	int		index;
+
 	sign = 0;
+	if (nb == 0)
+		return (ft_strdup("0"));
 	if (nb == -2147483648)
-		return ("-2147483648");
+		return (tab = ft_strdup("-2147483648"));
 	if (nb < 0)
 	{
 		sign = 1;
@@ -63,13 +64,4 @@ char		*ft_itoa(int nb)
 		index = index - 1;
 	tab = ft_reverse(nb, tab, index);
 	return (tab);
-}
-
-int main (void)
-{
-	int nb= -454667800;
-	char *tab;
-	
-	tab = ft_itoa(nb);
-	printf("%s\n",tab);
 }

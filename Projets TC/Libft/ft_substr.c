@@ -6,17 +6,17 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:06:16 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 15:45:40 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 12:37:19 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_substr(char const *src, unsigned int start, size_t len)
 {
-	char	*memory;
-	int		size;
-	int		cmpt;
+	char			*memory;
+	unsigned long	size;
+	unsigned long	cmpt;
 
 	size = 0;
 	cmpt = start;

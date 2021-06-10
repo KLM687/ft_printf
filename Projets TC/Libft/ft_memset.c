@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memset(void *str, int c, size_t n)
 {
-	unsigned int	index;
+	unsigned long	index;
 	unsigned char	*memory;
 	unsigned char	value;
 

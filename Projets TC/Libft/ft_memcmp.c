@@ -6,17 +6,17 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 11:12:43 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 13:53:00 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 12:36:05 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 int 	ft_memcmp(const void *pointer1, const void *pointer2, size_t size)
 {
-	char	*tab1;
-	char	*tab2;
-	int		index;
+	char				*tab1;
+	char				*tab2;
+	unsigned long		index;
 
 	tab1 = (char *)pointer1;
 	tab2 = (char *)pointer2;

@@ -6,17 +6,17 @@
 /*   By: flee <flee@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:00:59 by flee              #+#    #+#             */
-/*   Updated: 2021/06/08 13:46:56 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/10 12:35:16 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 void	*ft_memccpy (void *restrict d, const void *restrict s, int c, size_t si)
 {
-	char	*a;
-	char	*b;
-	int		index;
+	char			*a;
+	char			*b;
+	unsigned long	index;
 
 	a = (char *)s;
 	b = (char *)d;
