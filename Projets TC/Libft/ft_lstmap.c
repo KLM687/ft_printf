@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 12:59:30 by flee              #+#    #+#             */
-/*   Updated: 2021/06/11 14:29:46 by flee             ###   ########.fr       */
+/*   Created: 2021/06/11 16:08:27 by flee              #+#    #+#             */
+/*   Updated: 2021/06/11 17:22:31 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	dstlen;
-	unsigned int	srclen;
-	unsigned int	i;
+	t_list	*new_lst;
 
-	dstlen = 0;
-	srclen = 0;
-	i = 0;
-	while (dst[dstlen])
-		dstlen++;
-	while (src[srclen])
-		srclen++;
-	if (size == 0 || size <= dstlen)
-		return (srclen + size);
-	while (i < srclen && i < size - dstlen - 1)
+	new_list = ft_lstnew((*)(lst));
+	lst = lst->next;
+	new_list = 
+	while (list)
 	{
-		dst[dstlen + i] = src[i];
-		i++;
 	}
-	dst[dstlen + i] = '\0';
-	return (dstlen + srclen);
+
 }

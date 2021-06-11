@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/25 12:59:30 by flee              #+#    #+#             */
-/*   Updated: 2021/06/11 14:29:46 by flee             ###   ########.fr       */
+/*   Created: 2021/06/11 14:39:56 by flee              #+#    #+#             */
+/*   Updated: 2021/06/11 15:28:20 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	unsigned int	dstlen;
-	unsigned int	srclen;
-	unsigned int	i;
+	t_list	*tmp;
 
-	dstlen = 0;
-	srclen = 0;
-	i = 0;
-	while (dst[dstlen])
-		dstlen++;
-	while (src[srclen])
-		srclen++;
-	if (size == 0 || size <= dstlen)
-		return (srclen + size);
-	while (i < srclen && i < size - dstlen - 1)
+	tmp = *alst;
+	while (tmp)
 	{
-		dst[dstlen + i] = src[i];
-		i++;
+		if (tmp->next == NULL)
+		{
+			tmp = new;
+			tmp->next = *alst;
+		}
+		else
+			tmp = tmp->next;
 	}
-	dst[dstlen + i] = '\0';
-	return (dstlen + srclen);
 }

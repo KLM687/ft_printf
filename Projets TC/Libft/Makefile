@@ -6,7 +6,7 @@
 #    By: flee <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 14:35:23 by flee              #+#    #+#              #
-#    Updated: 2021/06/10 14:02:55 by flee             ###   ########.fr        #
+#    Updated: 2021/06/11 11:57:47 by flee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRC =	ft_atoi.c \
 		ft_strmapi.c \
 		ft_substr.c
 
-SRCBONUS = 	ft_lstnew.c \
+SRCBONUS =	ft_lstnew.c \
 	ft_lstsize.c \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
