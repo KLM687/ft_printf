@@ -6,13 +6,13 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 14:46:03 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 18:39:08 by cesco            ###   ########.fr       */
+/*   Updated: 2021/06/14 14:58:46 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strrchr(const char *hay, int needle)
+char	*ft_strrchr(const char *hay, int needle)
 {
 	size_t	len;
 

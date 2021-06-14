@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 11:06:16 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 20:34:09 by cesco            ###   ########.fr       */
+/*   Updated: 2021/06/14 15:00:13 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char		*tab;
+	char	*tab;
 	int		len1;
 	int		len2;
 	int		i;
@@ -38,4 +38,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (tab);
 }
-

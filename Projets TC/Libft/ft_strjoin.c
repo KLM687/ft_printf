@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 15:24:28 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 20:42:53 by cesco            ###   ########.fr       */
+/*   Updated: 2021/06/14 15:03:56 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		cmpt1;
 	int		cmpt2;
-	char		*str;
+	char	*str;
 
 	if (s1 == NULL && s2 == NULL)
 		return (NULL);

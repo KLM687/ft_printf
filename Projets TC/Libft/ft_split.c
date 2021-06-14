@@ -6,13 +6,13 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:03:56 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 14:39:35 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/14 14:57:41 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_sizeof_word(char *str, char sep)
+int	ft_sizeof_word(char const *str, char sep)
 {
 	int		size;
 
@@ -22,7 +22,7 @@ int	ft_sizeof_word(char *str, char sep)
 	return (size);
 }
 
-int	ft_count_word(char *str, char sep)
+int	ft_count_word(char const *str, char sep)
 {
 	int	words;
 	int	state;
@@ -46,7 +46,7 @@ int	ft_count_word(char *str, char sep)
 	return (words);
 }
 
-char	**ft_tabcreation(int words, char *str,
+char	**ft_tabcreation(int words, char const *str,
 		char sep, char **memorytab)
 {
 	int	i;

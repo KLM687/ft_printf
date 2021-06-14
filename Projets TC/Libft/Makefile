@@ -6,7 +6,7 @@
 #    By: flee <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 14:35:23 by flee              #+#    #+#              #
-#    Updated: 2021/06/11 11:57:47 by flee             ###   ########.fr        #
+#    Updated: 2021/06/14 14:49:08 by flee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC =	ft_atoi.c \
 		ft_memmove.c\
 		ft_memset.c \
 		ft_strchr.c \
+		ft_split.c \
 		ft_strdup.c \
 		ft_strlcat.c \
 		ft_strlcpy.c \

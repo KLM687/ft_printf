@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/11 10:32:52 by flee              #+#    #+#             */
-/*   Updated: 2021/06/11 13:42:00 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/14 14:56:45 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*tmp;
-	
+
 	tmp = (t_list *)malloc(sizeof(t_list));
 	if (tmp)
 	{
