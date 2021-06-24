@@ -6,7 +6,7 @@
 /*   By: cesco <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 17:20:23 by cesco             #+#    #+#             */
-/*   Updated: 2021/06/10 11:02:13 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/24 11:38:02 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ char	*ft_itoa(int nb)
 	int		sign;
 	int		index;
 
-	sign = 0;
 	if (nb == 0)
 		return (ft_strdup("0"));
+	sign = 0;
 	if (nb == -2147483648)
 		return (tab = ft_strdup("-2147483648"));
 	if (nb < 0)

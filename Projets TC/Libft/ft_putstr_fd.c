@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/10 11:10:40 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 11:28:07 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/24 11:42:27 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ void	ft_putstr_fd(char *s, int fd)
 	char	c;
 
 	index = 0;
-	while (s[index] != '\0')
+	if (s)
 	{
-		c = s[index];
-		ft_putchar_fd(c, fd);
-		index++;
+		while (s[index] != '\0')
+		{
+			c = s[index];
+			ft_putchar_fd(c, fd);
+			index++;
+		}
 	}
 }

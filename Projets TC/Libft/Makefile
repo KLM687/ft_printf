@@ -6,7 +6,7 @@
 #    By: flee <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/08 14:35:23 by flee              #+#    #+#              #
-#    Updated: 2021/06/14 14:49:08 by flee             ###   ########.fr        #
+#    Updated: 2021/06/24 13:33:09 by flee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,8 +76,7 @@ clean:
 fclean:	clean
 	/bin/rm -f $(NAME)
 
-re:
-	fclean all
+re:	fclean all
 
 .PHONY: 
 	all clean fclean re

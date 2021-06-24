@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:03:56 by flee              #+#    #+#             */
-/*   Updated: 2021/06/14 14:57:41 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/24 11:39:27 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,14 @@ char	**ft_split(char const *str, char sep)
 	int		words;
 	char	**memorytab;
 
-	words = ft_count_word(str, sep);
-	memorytab = (char **)malloc(sizeof(char *) * words + 1);
-	if (!memorytab)
-		return (NULL);
-	memorytab = ft_tabcreation(words, str, sep, memorytab);
-	return (memorytab);
+	if (str)
+	{
+		words = ft_count_word(str, sep);
+		memorytab = (char **)malloc(sizeof(char *) * words + 1);
+		if (!memorytab)
+			return (NULL);
+		memorytab = ft_tabcreation(words, str, sep, memorytab);
+		return (memorytab);
+	}
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: flee <flee@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 15:43:48 by flee              #+#    #+#             */
-/*   Updated: 2021/06/10 14:43:23 by flee             ###   ########.fr       */
+/*   Updated: 2021/06/21 16:47:31 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 	b = (char *)dest;
 	a = (char *)src;
+	if (a == NULL && b == NULL)
+		return (NULL);
 	index = 0;
 	while (index < n)
 	{
