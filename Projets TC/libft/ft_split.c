@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 12:03:56 by flee              #+#    #+#             */
-/*   Updated: 2021/06/24 22:17:32 by cesco            ###   ########.fr       */
+/*   Updated: 2021/06/27 09:47:44 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_count_word(char const *str, char sep)
 	return (words);
 }
 
-char	**ft_tabcreation(int words, char const *str,
+int	ft_tabcreation(int words, char const *str,
 		char sep, char **memorytab)
 {
 	int	i;
@@ -59,10 +59,10 @@ char	**ft_tabcreation(int words, char const *str,
 	{
 		while (str[cmpt] != '\0' && str[cmpt] == sep)
 			cmpt++;
-		memorytab[index] = malloc(sizeof(char)
-				* ft_sizeof_word(&str[cmpt], sep) + 1);
+		memorytab[index] = (char *)malloc(sizeof(char)
+				* ((ft_sizeof_word(&str[cmpt], sep) + 1)));
 		if (!memorytab)
-			return (NULL);
+			return (1);
 		i = 0;
 		while (str[cmpt] != '\0' && str[cmpt] != sep)
 		{
@@ -72,7 +72,8 @@ char	**ft_tabcreation(int words, char const *str,
 		memorytab[index][i] = '\0';
 		index++;
 	}
-	return (memorytab);
+	memorytab[index] = NULL;
+	return (0);
 }
 
 char	**ft_split(char const *str, char sep)
@@ -83,10 +84,11 @@ char	**ft_split(char const *str, char sep)
 	if (str)
 	{
 		words = ft_count_word(str, sep);
-		memorytab = (char **)malloc(sizeof(char *) * words);
+		memorytab = (char **)malloc(sizeof(char *) * (words + 1));
 		if (!memorytab)
 			return (NULL);
-		memorytab = ft_tabcreation(words, str, sep, memorytab);
+		if (ft_tabcreation(words, str, sep, memorytab))
+			return (NULL);
 		return (memorytab);
 	}
 	return (NULL);
