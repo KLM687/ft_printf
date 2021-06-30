@@ -6,12 +6,17 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/27 10:49:31 by flee              #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2021/06/30 20:54:51 by cesco            ###   ########.fr       */
+=======
+/*   Updated: 2021/06/29 11:43:00 by flee             ###   ########.fr       */
+>>>>>>> cfe8726f9e289f5bebdee7ef3c2e537fb615920e
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
+<<<<<<< HEAD
 int	fill_line(char **line, char *buffer, int *offset)
 {
 	int		to_endl;
