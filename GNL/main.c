@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/07 10:43:40 by flee              #+#    #+#             */
-/*   Updated: 2021/07/13 16:48:45 by flee             ###   ########.fr       */
+/*   Created: 2021/07/13 13:08:08 by flee              #+#    #+#             */
+/*   Updated: 2021/07/13 13:51:40 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <unistd.h>
-# include <stdlib.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <stdio.h>
+#include "get_next_line.h"
 
-char	*get_next_line(int fd);
-int		ft_strlen(char *str);
-int		ft_strlcpy(char *dest, char *src, int size);
-char	*ft_strjoin(char *memory, char *s2);
-int		ft_strlcat(char *dst, char *src, int size);
-int		ft_strlen_n(char *str);
+int main (int argc, char **argv)
+{
+	int fd;
+	char *line;
 
-#endif
+	fd = open (argv[1], O_RDONLY);
+	line = get_next_line(fd);
+
+	printf("%s\n",line);
+}

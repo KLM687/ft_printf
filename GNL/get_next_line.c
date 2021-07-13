@@ -6,44 +6,109 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 17:08:35 by flee              #+#    #+#             */
-/*   Updated: 2021/07/07 10:20:48 by flee             ###   ########.fr       */
+/*   Updated: 2021/07/13 17:34:40 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_fill_line(char *first, char *second, char *memory, int fd)
+int	ft_check(char *memory)
 {
-	int len_first;
-	
-	len_first = ft_strlcpy(first, memory);
-	while (first[len_first] != '\n' || first[len_first] != '\0')
+	if (memory)
 	{
-		len_first = read (fd, second, BUFFER_SIZE);
-		if (len_first == 0)
+		int i;
+		int n;
+
+		i = 0;
+		n = 0;
+		while (memory[i] != '\0')
 		{
-			first = ft_strjoin(first, second);
-			
+			if (memory[i] == '\n')
+				n++;
+			i++;
+		}
+		return (n);
+	}
+	return (0);
 }
 
-
-
-int get_next_line(int fd, char **line)
+int	ft_fill_memory(char *memory, char buf[BUFFER_SIZE + 1], int offset, int fd)
 {
-	static char	memory[BUFFER_SIZE + 1];
-	int			read_return;
-	char		*first;
-	char		*second;
-	
-	read_return = 0;
-	seconde = 0;
-	if (!fd || !line || BUFFER_SIZE <= 0)
-		return (-1);
-	read_return = read(fd, memory, BUFFER_SIZE);
-	if (read_return == -1)
-		return (-1);
-	if (read_return != 0)
-	{
-		first = (char *)malloc(sizeof(char) * read_return);
-		ft_fill_line(fi
+	int	read_return;
+	int	i;
 
+	i = 0;
+	read_return = read(fd, buf, BUFFER_SIZE);
+	printf("read = %d\n",read_return);
+	memory = ft_strjoin(memory, buf);
+	printf("memory = %s\n",memory);
+	while (memory[i] && offset >= 0)
+	{
+		if (memory[i] == '\n')
+			offset--;
+		i++;
+		if (offset < 0)
+			return (0);
+	}
+	printf("fill memory ok\n");
+	return (read_return);
+}
+
+char *ft_fill_line(char *memory, char *line, int offset)
+{
+	int i;
+	int len;
+	int start;
+	
+	i = 0;
+	len = 0;
+	while (memory[i] && offset > 0)
+	{
+		if (memory[i] == '\n')
+			offset--;
+		i++;
+	}
+	start = i;
+	while (memory[i] != '\0' && memory[i] != '\n')
+	{
+		i++;
+		len++;
+	}
+	line = (char *)malloc(sizeof(char) * len);
+	i = 0;
+	while (memory[start] != '\0' && memory[start] != '\n')
+	{
+		line[i] = memory[start];
+		i++;
+		start++;
+	}
+	return (line);
+}	
+
+
+char	*get_next_line(int fd)
+{
+	static char	*memory;
+	char		buf[BUFFER_SIZE + 1];
+	char		*line;
+	int			read_return;
+	int			offset;
+
+	memory = NULL;
+	line = NULL;
+	read_return = 1;
+	offset = ft_check(memory);
+	printf("offset = %d\n", offset);
+	if (!fd || BUFFER_SIZE <= 0)
+	{
+		printf("WTF\n");
+		return (NULL);
+	}
+	while (read_return > 0)
+	{
+		read_return = ft_fill_memory(memory, buf, offset, fd);
+		printf("read_return = %d\n",read_return);
+	}
+	line = ft_fill_line(memory, line, offset);
+	return (line);
+}
