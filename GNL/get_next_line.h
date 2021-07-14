@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 10:43:40 by flee              #+#    #+#             */
-/*   Updated: 2021/07/13 16:48:45 by flee             ###   ########.fr       */
+/*   Updated: 2021/07/14 17:35:16 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 # include <stdio.h>
 
 char	*get_next_line(int fd);
-int		ft_strlen(char *str);
-int		ft_strlcpy(char *dest, char *src, int size);
-char	*ft_strjoin(char *memory, char *s2);
-int		ft_strlcat(char *dst, char *src, int size);
+int		ft_strlen(const char *str);
+size_t	ft_strlcpy(char *dest, const char *src, unsigned int size);
+char	*ft_strjoin(char *s1, char const *s2);
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_strlen_n(char *str);
-
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substrfree(char *s, unsigned int start, size_t len);
 #endif
