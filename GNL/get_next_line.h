@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 10:43:40 by flee              #+#    #+#             */
-/*   Updated: 2021/07/14 17:35:16 by flee             ###   ########.fr       */
+/*   Updated: 2021/07/16 14:15:23 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 char	*get_next_line(int fd);
 int		ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, unsigned int size);
-char	*ft_strjoin(char *s1, char const *s2);
+char	*ft_strjoin(char *s1, char const *s2, int read_return);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_strlen_n(char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

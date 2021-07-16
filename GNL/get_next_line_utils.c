@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 10:49:26 by flee              #+#    #+#             */
-/*   Updated: 2021/07/14 17:35:42 by flee             ###   ########.fr       */
+/*   Updated: 2021/07/16 14:23:04 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (destlen + srclen);
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin(char *s1, char const *s2, int read_return)
 {
 	int		cmpt1;
 	int		cmpt2;
@@ -63,8 +63,7 @@ char	*ft_strjoin(char *s1, char const *s2)
 	if (s2)
 	{
 		cmpt1 = ft_strlen((char *)s1);
-		cmpt2 = cmpt1 + ft_strlen((char *)s2);
-		printf("buf = %s\n",s2);
+		cmpt2 = cmpt1 + read_return;
 		str = (char *)malloc(sizeof(char) * (cmpt2 + 1));
 		if (!str)
 			return (NULL);
