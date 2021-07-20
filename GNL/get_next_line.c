@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 17:08:35 by flee              #+#    #+#             */
-/*   Updated: 2021/07/16 17:06:29 by cesco            ###   ########.fr       */
+/*   Updated: 2021/07/20 16:23:11 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		ft_check(char *memory)
 
 char	*ft_fill_line(char *memory, char *line)
 {
-	line = ft_substr((char const *)memory, 0, ft_strlen_n(memory));
+	line = ft_substr((char const *)memory, 0, (ft_strlen_n(memory) + 1));
 	return (line);
 }
 
@@ -43,7 +43,7 @@ char	*get_next_line(int fd)
 	line = NULL;
 	read_return = 1;
 	check = 1;
-	if (!fd || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	while (read_return > 0 && check == 1)
 	{
@@ -56,8 +56,11 @@ char	*get_next_line(int fd)
 		check = ft_check(memory);
 	}
 	if (memory[0] == '\0')
+	{
+		free(memory);
 		return (NULL);
+	}
 	line = ft_fill_line(memory, line);
-	memory = ft_substrfree(memory,(ft_strlen_n(memory) + 1), ft_strlen(memory));
+	memory = ft_substrfree(memory,(ft_strlen_n(memory) + 1), (ft_strlen(memory) - 1));
 	return (line);
 }

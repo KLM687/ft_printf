@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 10:49:26 by flee              #+#    #+#             */
-/*   Updated: 2021/07/16 16:51:12 by cesco            ###   ########.fr       */
+/*   Updated: 2021/07/20 15:33:42 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ size_t	ft_strlcpy(char *dest, const char *src, unsigned int size)
 				dest[i] = src[i];
 				i++;
 			}
-			dest[i] = '\0';
 		}
 	}
+	dest[i] = '\0';
 	return (src_len);
 }
 char	*ft_substr(char const *s, unsigned int start, size_t len)
