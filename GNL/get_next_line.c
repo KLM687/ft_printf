@@ -6,13 +6,13 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/01 17:08:35 by flee              #+#    #+#             */
-/*   Updated: 2021/07/20 16:23:11 by flee             ###   ########.fr       */
+/*   Updated: 2021/07/20 17:24:58 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_check(char *memory)
+int	ft_check(char *memory)
 {
 	int	i;
 
@@ -28,8 +28,31 @@ int		ft_check(char *memory)
 
 char	*ft_fill_line(char *memory, char *line)
 {
-	line = ft_substr((char const *)memory, 0, (ft_strlen_n(memory) + 1));
+	line = ft_substr(memory, 0, (ft_strlen(memory, 1) + 1), 0);
 	return (line);
+}
+
+char	*ft_fill_memory(char *memory, char buf[BUFFER_SIZE + 1], int fd)
+{
+	int	read_return;
+	int	check;
+
+	read_return = 1;
+	check = 1;
+	while (read_return > 0 && check == 1)
+	{
+		read_return = read(fd, buf, BUFFER_SIZE);
+		buf[read_return] = '\0';
+		if (read_return == -1 || (read_return == 0 && memory == NULL))
+		{
+			memory = NULL;
+			return (memory);
+		}
+		if (read_return != 0)
+			memory = ft_strjoin(memory, buf, read_return);
+		check = ft_check(memory);
+	}
+	return (memory);
 }
 
 char	*get_next_line(int fd)
@@ -37,30 +60,20 @@ char	*get_next_line(int fd)
 	static char	*memory;
 	char		buf[BUFFER_SIZE + 1];
 	char		*line;
-	int			read_return;
-	int			check;
 
 	line = NULL;
-	read_return = 1;
-	check = 1;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	while (read_return > 0 && check == 1)
-	{
-		read_return = read(fd, buf, BUFFER_SIZE);
-		buf[read_return] = '\0';
-		if (read_return == -1 || (read_return == 0 && memory == NULL))
-			return (NULL);
-		if (read_return != 0)
-			memory = ft_strjoin(memory, buf, read_return);
-		check = ft_check(memory);
-	}
+	memory = ft_fill_memory(memory, buf, fd);
+	if (!memory)
+		return (NULL);
 	if (memory[0] == '\0')
 	{
 		free(memory);
 		return (NULL);
 	}
 	line = ft_fill_line(memory, line);
-	memory = ft_substrfree(memory,(ft_strlen_n(memory) + 1), (ft_strlen(memory) - 1));
+	memory = ft_substr(memory, (ft_strlen(memory, 1) + 1),
+			(ft_strlen(memory, 0) - 1), 1);
 	return (line);
 }

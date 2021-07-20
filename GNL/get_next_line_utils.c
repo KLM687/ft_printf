@@ -6,30 +6,29 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 10:49:26 by flee              #+#    #+#             */
-/*   Updated: 2021/07/20 15:33:42 by flee             ###   ########.fr       */
+/*   Updated: 2021/07/20 17:23:49 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_strlen_n(char *str)
+int	ft_strlen(const char *str, int state)
 {
 	int	i;
-	
-	i = 0;
-	while (str[i] != '\0' && str[i] != '\n')
-		i++;
-	return (i);
-}
 
-int	ft_strlen(const char *str)
-{
-	int	i;
-	if (str == NULL)
-		return (0);
 	i = 0;
-	while(str[i] != '\0')
-		i++;
+	if (state == 0)
+	{
+		if (str == NULL)
+			return (0);
+		while (str[i] != '\0')
+			i++;
+	}
+	if (state == 1)
+	{
+		while (str[i] != '\0' && str[i] != '\n')
+			i++;
+	}
 	return (i);
 }
 
@@ -40,7 +39,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	index;
 
 	destlen = 0;
-	srclen = ft_strlen(src);
+	srclen = ft_strlen(src, 0);
 	index = 0;
 	while (dst[destlen] && destlen < size)
 		destlen++;
@@ -62,7 +61,7 @@ char	*ft_strjoin(char *s1, char const *s2, int read_return)
 
 	if (s2)
 	{
-		cmpt1 = ft_strlen((char *)s1);
+		cmpt1 = ft_strlen((char *)s1, 0);
 		cmpt2 = cmpt1 + read_return;
 		str = (char *)malloc(sizeof(char) * (cmpt2 + 1));
 		if (!str)
@@ -98,7 +97,8 @@ size_t	ft_strlcpy(char *dest, const char *src, unsigned int size)
 	dest[i] = '\0';
 	return (src_len);
 }
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+
+char	*ft_substr(char *s, unsigned int start, size_t len, int state)
 {
 	char	*tab;
 	int		len1;
@@ -109,7 +109,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	tab = NULL;
 	if (s)
 	{
-		len1 = (int)ft_strlen((char *)s);
+		len1 = (int)ft_strlen((char *)s, 0);
 		len2 = len;
 		if ((int)start > len1)
 			len2 = 0;
@@ -121,33 +121,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		while (++i < len2)
 			tab[i] = s[start + i];
 		tab[i] = '\0';
-	}
-	return (tab);
-}
-char	*ft_substrfree(char *s, unsigned int start, size_t len)
-{
-	char	*tab;
-	int		len1;
-	int		len2;
-	int		i;
-
-	i = -1;
-	tab = NULL;
-	if (s)
-	{
-		len1 = (int)ft_strlen(s);
-		len2 = len;
-		if ((int)start > len1)
-			len2 = 0;
-		else if ((int)start + len2 > len1)
-			len2 = len1 - (int)start;
-		tab = (char *) malloc(sizeof(char) * (len2 + 1));
-		if (!tab)
-			return (NULL);
-		while (++i < len2)
-			tab[i] = s[start + i];
-		tab[i] = '\0';
-		free(s);
+		if (state == 1)
+			free(s);
 	}
 	return (tab);
 }
