@@ -6,7 +6,7 @@
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 11:53:04 by flee              #+#    #+#             */
-/*   Updated: 2021/07/21 16:33:28 by flee             ###   ########.fr       */
+/*   Updated: 2021/07/22 16:26:14 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,25 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-void	ft_station(va_list para_info, const char *argc)
+int	ft_station(va_list para_info, const char *argc)
 {
 	char	rail;
 	int		ticket;
-	char	c;
+	int		nb;
 
 	rail = *argc;
 	ticket = 1;
+	nb = 0;
 	if (rail== 'c' )
-		c = (int)va_arg(para_info, int);
+		nb = ft_putchar((int)va_arg(para_info, int));
 	else if (rail == 's')
-		printf("wtf");
-	write(1 , &c, 1);
+		nb = ft_putstr((char *)va_arg(para_info, char *));
+	else if (rail == 'p')
+		nb = ft_putarg((int)va_arg(para_info, int));
+	else if (rail == 'd' || rail == 'i' || rail == 'u')
+		nb = ft_putnbr((int)va_arg(para_info, int), 0);
+	//printf("|nb = %d|\n", nb);
+	return (nb);
 }
 
 
@@ -48,14 +54,17 @@ int	ft_write_argc(va_list para_info, const char *argc)
 		if (c == '%')
 		{
 			i++;
-			ft_station(para_info, &argc[i]);
+			nbc += ft_station(para_info, &argc[i]);
 			state = 1;
 		}
 		if (state != 1)
+		{
+			nbc++;
 			write(1, &c, 1);
+		}
 		i++;
-		nbc++;
 	}
+	//printf("|nbc = %d|\n",nbc);
 	return (nbc);
 }
 
@@ -63,15 +72,20 @@ int	ft_printf(const char *argc, ...)
 {
 	va_list para_info;
 	int nbc;
-
+	
+	nbc = 0;
 	va_start (para_info, argc);
 	nbc = ft_write_argc (para_info,argc);
 	return (nbc);
 }
 
-int main (void)
+/*int main (void)
 {
-	int c = 1;
+	int nb;
+	int a = -42;
+	int b = 50;
+	int c = 1000;
 
-	ft_printf("bbb%c%cbbb", c, c);
+	nb = ft_printf("%d%d%d",a,b,c);
 }
+*/

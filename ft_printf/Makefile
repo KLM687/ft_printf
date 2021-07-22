@@ -6,15 +6,20 @@
 #    By: flee <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 19:23:49 by flee              #+#    #+#              #
-#    Updated: 2021/07/20 19:25:03 by flee             ###   ########.fr        #
+#    Updated: 2021/07/22 15:50:41 by flee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =
+NAME = libftprintf.a
 
-SRC =
+SRC =	ft_printf.c \
+		ft_putstr.c \
+		ft_putchar.c \
+		ft_putarg.c \
+		ft_strlcpy.c \
+		ft_putnbr.c \
 
-SRCBONUS =
+SRCBONUS = \
 
 OBJS = $(SRC:.c=.o)
 
