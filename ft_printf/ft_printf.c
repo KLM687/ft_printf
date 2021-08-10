@@ -84,10 +84,11 @@ int	ft_printf(const char *argc, ...)
 int main (void)
 {
 	int nb = 0;
-	int a = -9;
-	unsigned int t = -9;
+	int a = -1234;
+	unsigned int t = -1234;
 
-	nb = ft_printf("%uuuu%uuuu%u",a,a,a);
+	nb = ft_printf("%uuuu%uuuu%u",a ,a ,a);
+	printf("\n");
 	printf("\n%u\n", t);
 	printf("%d\n", nb);
 }
