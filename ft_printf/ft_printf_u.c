@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printf_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,18 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <unistd.h>
-# include <stdarg.h>
-# include <stdlib.h>
-# include <stdio.h>
+#include "ft_printf.h"
 
-int			ft_printf(const char *, ...);
-int			ft_putstr(char *str);
-int			ft_putchar(char c);
-size_t		ft_strlcpy(char *dest, const char *src, unsigned int size);
-int			ft_putarg(int nb);
-int			ft_putnbr(int n, int set);
-int			ft_printf_u(int nb);
-#endif
+int	ft_printf_u(int nb)
+{
+	unsigned int index;
+	int i;
+
+	index = nb;
+	//printf("printf_u = \n%d\n", index);
+	i = ft_putnbr(index, 0);
+	return (i);
+}
+

@@ -18,6 +18,7 @@ SRC =	ft_printf.c \
 		ft_putarg.c \
 		ft_strlcpy.c \
 		ft_putnbr.c \
+		ft_printf_u.c \
 
 SRCBONUS = \
 
