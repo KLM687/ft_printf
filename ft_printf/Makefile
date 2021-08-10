@@ -6,7 +6,7 @@
 #    By: flee <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/20 19:23:49 by flee              #+#    #+#              #
-#    Updated: 2021/07/22 15:50:41 by flee             ###   ########.fr        #
+#    Updated: 2021/08/10 15:57:25 by flee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC =	ft_printf.c \
 		ft_strlcpy.c \
 		ft_putnbr.c \
 		ft_printf_u.c \
+		ft_print_p.c \
 
 SRCBONUS = \
 

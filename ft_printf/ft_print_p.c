@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putarg.c                                        :+:      :+:    :+:   */
+/*   ft_print_p.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/22 12:48:26 by flee              #+#    #+#             */
-/*   Updated: 2021/08/10 15:59:32 by flee             ###   ########.fr       */
+/*   Created: 2021/08/10 14:54:40 by flee              #+#    #+#             */
+/*   Updated: 2021/08/10 16:12:23 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,6 @@ static int	ft_putnbr_base16(unsigned int nbr, int set)
 	nb = (long)nbr;
 	len_base = 0;
 	ft_strlcpy(base, "0123456789abcdef", 17);
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-		index++;
-	}
 	while (base[len_base])
 			len_base++;
 	if (nb >= len_base)
@@ -40,16 +34,17 @@ static int	ft_putnbr_base16(unsigned int nbr, int set)
 	return (index);
 }
 
-int	ft_putarg(int nb)
+int	ft_print_p(int  nb)
 {
 	int nbc;
 	unsigned int i;
-	
+
+	nbc = 2;
+	ft_putstr("0x");
 	if (nb < 0)
 		i = 4294967296 + nb;
 	else
 		i = nb;
-	nbc = ft_putnbr_base16(i, 0);
+	nbc += ft_putnbr_base16(i, 0);
 	return (nbc);
 }
-
