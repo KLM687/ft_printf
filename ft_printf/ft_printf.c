@@ -26,7 +26,7 @@ int	ft_station(va_list para_info, const char *argc)
 	else if (rail == 's')
 		nb = ft_putstr((char *)va_arg(para_info, char *));
 	else if (rail == 'p')
-		nb = ft_arg_p((long long)va_arg(para_info,long long));
+		nb = ft_arg_p((unsigned long)va_arg(para_info,unsigned long));
 	else if (rail == 'd' || rail == 'i')
 		nb = ft_putnbr((int)va_arg(para_info, int), 0);
 	else if (rail == 'u')
@@ -84,11 +84,14 @@ int	ft_printf(const char *argc, ...)
 	return (nbc);
 }
 
+/*#include <limits.h>
+
 int main (void)
 {
 
 	int nb = 0;
 
-	 nb = ft_printf("-%x-%p-", -4294967295, -4294967295);
+	nb = ft_printf(" %p %p ", LONG_MIN, LONG_MAX);
 	printf("\nnb = %d\n",nb);
 }
+*/

@@ -22,12 +22,6 @@ static int	ft_putnbr_base16(unsigned int nbr, int set, char *base)
 	index = set;
 	nb = (long)nbr;
 	len_base = 0;
-	if (nb < 0)
-	{
-		write(1, "-", 1);
-		nb = -nb;
-		index++;
-	}
 	while (base[len_base])
 			len_base++;
 	if (nb >= len_base)

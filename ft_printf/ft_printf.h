@@ -19,7 +19,7 @@
 
 int			ft_arg_u(int nb);
 int			ft_arg_x(int nb, char rail);
-int			ft_arg_p(long long nb);
+int			ft_arg_p(unsigned long nb);
 int			ft_printf(const char *, ...);
 int			ft_putstr(char *str);
 int			ft_putchar(char c);
