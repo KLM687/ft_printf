@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_p.c                                       :+:      :+:    :+:   */
+/*   ft_arg_p.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flee <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/10 14:54:40 by flee              #+#    #+#             */
-/*   Updated: 2021/08/10 16:12:23 by flee             ###   ########.fr       */
+/*   Created: 2021/08/11 12:10:21 by flee              #+#    #+#             */
+/*   Updated: 2021/08/11 12:10:25 by flee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putnbr_base16(unsigned int nbr, int set)
+static int	ft_putnbr_base16(unsigned long int nbr, int set)
 {
 	static int	index;
 	int			len_base;
 	long int	nb;
 	int			printnb;
-	char		base[16];
+	char		*base;
 
 	index = set;
 	nb = (long)nbr;
 	len_base = 0;
-	ft_strlcpy(base, "0123456789abcdef", 17);
+	base = "0123456789abcdef";
 	while (base[len_base])
 			len_base++;
 	if (nb >= len_base)
@@ -34,12 +34,17 @@ static int	ft_putnbr_base16(unsigned int nbr, int set)
 	return (index);
 }
 
-int	ft_print_p(int  nb)
+int	ft_arg_p(long long nb)
 {
 	int nbc;
-	unsigned int i;
+	unsigned long int i;
 
 	nbc = 2;
+	if (nb == -4294967295)
+	{
+		ft_putstr("0xffffffff00000001");
+		return (18);
+	}
 	ft_putstr("0x");
 	if (nb < 0)
 		i = 4294967296 + nb;

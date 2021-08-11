@@ -17,13 +17,14 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-int			ft_print_pourc(void);
+int			ft_arg_u(int nb);
+int			ft_arg_x(int nb, char rail);
+int			ft_arg_p(long long nb);
 int			ft_printf(const char *, ...);
 int			ft_putstr(char *str);
 int			ft_putchar(char c);
-size_t		ft_strlcpy(char *dest, const char *src, unsigned int size);
-int			ft_putarg(int nb);
+size_t			ft_strlcpy(char *dest, const char *src, unsigned int size);
 int			ft_putnbr(int n, int set);
-int			ft_printf_u(int nb);
-int			ft_print_p(int nb);
+int			ft_printf(const char *argc, ...);
+
 #endif

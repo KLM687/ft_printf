@@ -13,13 +13,13 @@
 NAME = libftprintf.a
 
 SRC =	ft_printf.c \
+		ft_arg_u.c \
+		ft_arg_x.c \
+		ft_arg_p.c \
 		ft_putstr.c \
 		ft_putchar.c \
-		ft_putarg.c \
 		ft_strlcpy.c \
 		ft_putnbr.c \
-		ft_printf_u.c \
-		ft_print_p.c \
 
 SRCBONUS = \
 

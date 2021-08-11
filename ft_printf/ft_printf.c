@@ -26,13 +26,13 @@ int	ft_station(va_list para_info, const char *argc)
 	else if (rail == 's')
 		nb = ft_putstr((char *)va_arg(para_info, char *));
 	else if (rail == 'p')
-		nb = ft_print_p((unsigned long int)va_arg(para_info,unsigned long int));
+		nb = ft_arg_p((long long)va_arg(para_info,long long));
 	else if (rail == 'd' || rail == 'i')
 		nb = ft_putnbr((int)va_arg(para_info, int), 0);
 	else if (rail == 'u')
-		nb = ft_printf_u((int)va_arg(para_info,int));
-	else if (rail == 'x')
-		nb = ft_putarg((int)va_arg(para_info,int));
+		nb = ft_arg_u((int)va_arg(para_info, int));
+	else if (rail == 'x' || rail == 'X')
+		nb = ft_arg_x(((int)va_arg(para_info,int)), rail);
 	else if (rail == '%')
 	{
 		write(1, "%", 1);
@@ -70,7 +70,6 @@ int	ft_write_argc(va_list para_info, const char *argc)
 		}
 		i++;
 	}
-	//printf("|nbc = %d|\n",nbc);
 	return (nbc);
 }
 
@@ -85,13 +84,11 @@ int	ft_printf(const char *argc, ...)
 	return (nbc);
 }
 
-/*int main (void)
+int main (void)
 {
 
 	int nb = 0;
 
-	nb = ft_printf(" %p %p ", -2147483647, 2147483647);
-	printf("\n");
-	printf("%d\n", nb);
+	 nb = ft_printf("-%x-%p-", -4294967295, -4294967295);
+	printf("\nnb = %d\n",nb);
 }
-*/
